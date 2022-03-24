@@ -34,8 +34,8 @@ fn main(){
   println!("hinh chu co the chua hinh 2 = {}",kichthuoc.chua(&kichthuoc2));
   println!("hinh chu co the chua hinh 3 = {}",kichthuoc.chua(&kichthuoc3));
 
-  let kichthuoc4: hinhchunhat = hinhchunhat::hinhvuong {10};
-  println!("hinh chu co the chua hinh 3 = {}",kichthuoc.hinhvuong(&kichthuoc4));
+  let kichthuoc4: hinhvuong = hinhvuong {10};
+  println!("hinh chu co the chua hinh 3 = {}",hinhchunhat::hinhvuong(&kichthuoc4));
 
 
 }
