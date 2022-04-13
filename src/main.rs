@@ -1,15 +1,28 @@
-fn main() {
-    let number = 1;
+use std::collections::HashMap;
 
-    println!("Tell me about {}", number);
-    match number {
-        // 単一の値とのマッチをチェック
-        1 => println!("One!"),
-        // いくつかの値とのマッチをチェック
-        2 | 3 | 5 | 7 | 11 => println!("This is a prime"),
-        // 特定の範囲の値とのマッチをチェック
-        13...19 => println!("A teen"),
-        // その他の場合の処理
-        _ => println!("Ain't special"),
+fn main() {
+    let mut marks = HashMap::new();
+
+    //Add value
+    marks.insert("Rust Programmung", 96);
+    marks.insert("Web Development", 94);
+    marks.insert("UX Design", 75);
+    marks.insert("Professional Computing Studies", 45);
+
+    println!("How many subjects have you studies? {}",marks.len());
+
+    match marks.get("Web Development"){
+        Some(mark) => println!("You got {} for Web Dev!", mark),
+        None => println!("You didnt study Web Development")
     }
+
+    //Remove a value
+    marks.remove("UX Design");
+
+    for (subject, mark) in marks {
+        println!("For {} you got {} %", subject,mark);
+    }
+
+    //check for value
+    println!("Did you study C++ {}", marks.contains_key("C++ Programming"));
 }
