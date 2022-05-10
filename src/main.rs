@@ -1,19 +1,49 @@
-#![allow(dead_code)]
-
-enum Day{
-    Monday, Tuesday, Wednesday, Thursday, Friday, Sturday, Sunday
+struct Rectangle {
+    width: u8,
+    height: u8
 }
 
-impl Day {
-    fn is_weekday(&self) -> bool {
-        match self {
-            &Day::Sunday | &Day::Sturday => return false,
-            _ => return true
-        }
+impl Rectangle {
+    fn is_sqaure(&self) -> bool {
+        self.width == self.height
     }
 }
+
 fn main(){
-    let d = Day::Sunday;
-    
-    println!("Is d a weekday? {}:", d.is_weekday());
+
+}
+
+fn give_two() -> i32 {
+    2
+}
+
+// #[cfg(test)]
+mod dcode_test{
+    #[test]
+    #[should_panic]
+    fn test_basic() {
+        assert!(1==1);
+       panic!("Oh no!");
+    }
+
+    #[test]
+    #[ignore]
+    fn test_equals(){
+        assert_eq!(super::give_two(),1+1);
+
+        assert_ne!(super::give_two(),1+2);
+    }
+
+    #[test]
+    #[should_panic]
+    fn test_structs(){
+        let r = super::Rectangle{
+            width:50,
+            height:25
+        };
+
+        assert!(r.is_sqaure());
+
+    }
+
 }
